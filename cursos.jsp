@@ -9,7 +9,7 @@
     <!-- Bootstrap 5 CDN para diseño responsivo -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-dark text-light"> <!-- Diseño Dark Mode -->
+<body class="bg-dark text-light">
     <div class="container mt-5">
         <h1 class="text-center mb-4 text-info">Cursos de Inteligencia Artificial Generativa</h1>
         <p class="text-center mb-5">Aprende sobre herramientas, ventajas, tips y cómo interactuar con la IA.</p>
@@ -17,15 +17,16 @@
         <div class="row">
             <%
                 String url = "jdbc:mysql://localhost:3306/ia_generativa_db";
-                String usuario = "root"; // Cambia por tu usuario de MySQL
-                String password = "";    // Cambia por tu contraseña de MySQL
+                String usuario = "root"; 
+                String password = "";    
                 
                 Connection conn = null;
                 Statement stmt = null;
                 ResultSet rs = null;
                 
                 try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    // En MySQL Connector 5.1.x la clase es com.mysql.jdbc.Driver (sin .cj.)
+                    Class.forName("com.mysql.jdbc.Driver");
                     conn = DriverManager.getConnection(url, usuario, password);
                     stmt = conn.createStatement();
                     rs = stmt.executeQuery("SELECT * FROM cursos");

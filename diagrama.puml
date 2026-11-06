@@ -1,0 +1,12 @@
+@startuml
+skinparam defaultFontName sans-serif
+
+entity "Curso" as curso {
+  * id_curso : INT <<PK>>
+  --
+  * nombre : VARCHAR(100)
+  * fecha_inicio : DATE
+  * descripcion : TEXT
+  * requisitos : TEXT
+}
+@enduml
